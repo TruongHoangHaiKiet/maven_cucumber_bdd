@@ -94,8 +94,8 @@
             <!-- Generate report -->
             <plugin>
                 <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>3.10.0</version>
+                <artifactId>cucumber-reporting</artifactId>
+                <version>5.7.5</version>
                 <executions>
                     <execution>
                         <id>execution</id>
