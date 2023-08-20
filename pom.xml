@@ -15,6 +15,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
+        <faker.version>1.0.1</faker.version>
+        <report.version>3.20.0</report.version>
     </properties>
 
     <dependencies>
@@ -36,11 +38,7 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -58,10 +56,16 @@
             <version>1.2.17</version>
         </dependency>
 
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>${faker.version}</version>
+		</dependency>
+
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
-            <version>3.20.0</version>
+            <version>${report.version}</version>
         </dependency>
     </dependencies>
 
@@ -86,16 +90,17 @@
                 <version>2.18.1</version>
                 <configuration>
                     <includes>
-                        <include>**/*/CucumberTestRunner.java</include>
+                        <include>**/*/TechPandaTestRunner.java</include>
                     </includes>
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
 
             <!-- Generate report -->
             <plugin>
                 <groupId>net.masterthought</groupId>
-                <artifactId>cucumber-reporting</artifactId>
-                <version>5.7.5</version>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${report.version}</version>
                 <executions>
                     <execution>
                         <id>execution</id>
@@ -104,11 +109,15 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>SELENIUM ONLINE - BANK GURU</projectName>
+                            <projectName>TECHPANDA REPORT HTML</projectName>
                             <outputDirectory>${project.build.directory}/site/cucumber-reporting</outputDirectory>
-                            <cucumberOutput>${project.build.directory}/site/cucumber.json</cucumberOutput>
-                            <enableFlashCharts>true</enableFlashCharts>
-                            <skippedFails>true</skippedFails>
+                            <inputDirectory>${project.build.directory}/site</inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
+<!--                            <enableFlashCharts>true</enableFlashCharts>-->
+<!--                            <skippedFails>true</skippedFails>-->
+                            <checkBuildResult>false</checkBuildResult>
                         </configuration>
                     </execution>
                 </executions>

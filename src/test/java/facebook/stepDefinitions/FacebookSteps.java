@@ -1,4 +1,4 @@
-package stepDefinitions;
+package facebook.stepDefinitions;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.After;

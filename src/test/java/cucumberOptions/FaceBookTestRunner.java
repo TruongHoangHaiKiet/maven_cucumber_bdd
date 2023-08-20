@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = "src/test/java/features",
-        glue = "stepDefinitions",
+    features = "src/test/java/facebook/features",
+        glue = "facebook.stepDefinitions",
 //        dryRun = true,
         monochrome = true,
         plugin = {"pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json"},
@@ -16,5 +16,5 @@ import org.junit.runner.RunWith;
         tags = {"@parameter"}
 )
 
-public class TestRunner {
+public class FaceBookTestRunner {
 }
