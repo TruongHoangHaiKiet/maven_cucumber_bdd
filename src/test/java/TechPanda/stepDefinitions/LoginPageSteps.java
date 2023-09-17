@@ -1,7 +1,7 @@
 package TechPanda.stepDefinitions;
 
 import commons.GlobalConstants;
-import commons.baseTest;
+import commons.basePage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -10,16 +10,15 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pageObjects.Navigation.PageGeneratorManager;
 import pageObjects.user.MyDashboardPageObjects;
-import pageObjects.user.UserHomePageObjects;
 import pageObjects.user.UserLoginPageObjects;
 
-public class LoginPageSteps extends baseTest {
+public class LoginPageSteps extends basePage {
 
     WebDriver driver;
     UserLoginPageObjects loginPage;
     String loginPageURL;
     MyDashboardPageObjects myDashboardPage;
-    String emailAddress = "automationfc123.vn@gmail.com";
+    String emailAddress = "automationfc0812.vn@gmail.com";
     String password = "123123";
 
     public LoginPageSteps() {
@@ -47,6 +46,6 @@ public class LoginPageSteps extends baseTest {
     @Then("Verify contact info")
     public void verifyLoginPageDisplay() {
         Assert.assertTrue(myDashboardPage.getInfoContactText("Automation FC"));
-        Assert.assertFalse("Incorrect info email",myDashboardPage.getInfoContactText("automationfc123.vn@gmail.com"));
+        Assert.assertTrue("Correct info email",myDashboardPage.getInfoContactText("automationfc0812.vn@gmail.com"));
     }
 }
