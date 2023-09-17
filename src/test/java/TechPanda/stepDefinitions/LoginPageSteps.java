@@ -8,7 +8,6 @@ import cucumber.api.java.en.When;
 import cucumberOptions.Hooks;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pageObjects.Navigation.PageGeneratorManager;
 import pageObjects.user.MyDashboardPageObjects;
 import pageObjects.user.UserLoginPageObjects;
 
@@ -16,7 +15,6 @@ public class LoginPageSteps extends basePage {
 
     WebDriver driver;
     UserLoginPageObjects loginPage;
-    String loginPageURL;
     MyDashboardPageObjects myDashboardPage;
     String emailAddress = "automationfc0812.vn@gmail.com";
     String password = "123123";
@@ -39,8 +37,7 @@ public class LoginPageSteps extends basePage {
 
     @When("Click on Login button")
     public void clickOnLoginButton()  {
-        loginPage.clickButtonByTitle(driver, "Login");
-        myDashboardPage = PageGeneratorManager.getMyDashboardPage(driver);
+        myDashboardPage = loginPage.clickButtonByTitle(driver, "Login");
     }
 
     @Then("Verify contact info")

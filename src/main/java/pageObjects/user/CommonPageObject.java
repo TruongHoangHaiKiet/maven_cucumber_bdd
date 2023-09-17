@@ -2,6 +2,7 @@ package pageObjects.user;
 
 import commons.basePage;
 import org.openqa.selenium.WebDriver;
+import pageObjects.Navigation.PageGeneratorManager;
 import pageUIs.admin.CommonPageUI;
 
 public class CommonPageObject extends basePage {
@@ -16,9 +17,10 @@ public class CommonPageObject extends basePage {
         sendkeyToElement(driver,  CommonPageUI.DYNAMIC_TEXTBOX_BY_ID, valueToInput, fieldName);
     }
 
-    public void clickButtonByTitle(WebDriver driver, String fieldName) {
+    public MyDashboardPageObjects clickButtonByTitle(WebDriver driver, String fieldName) {
         waitForElementClickable(driver, CommonPageUI.DYNAMIC_BUTTON_BY_TITLE, fieldName);
         clickToElement(driver, CommonPageUI.DYNAMIC_BUTTON_BY_TITLE, fieldName);
+        return PageGeneratorManager.getMyDashboardPage(driver);
     }
 
     public String getFieldErrorMessageByID(WebDriver driver, String fieldName) {
