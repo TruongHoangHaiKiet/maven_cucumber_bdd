@@ -18,15 +18,17 @@ public class LoginPageSteps extends basePage {
     MyDashboardPageObjects myDashboardPage;
     String emailAddress = "automationfc0812.vn@gmail.com";
     String password = "123123";
+    TestContext testContext;
 
-    public LoginPageSteps() {
+    public LoginPageSteps(TestContext testContext) {
         driver = Hooks.openAndQuitBrowser();
+        this.testContext = testContext;
         loginPage = new UserLoginPageObjects(driver);
     }
 
     @Given("Open Login Page URL")
     public void openLoginPageURL() {
-        driver.get(GlobalConstants.LIVE_USER_URL);
+        testContext.getDataContext().setContext(Context.LOGIN_URL, GlobalConstants.LIVE_USER_URL);
     }
 
     @When("Input valid email address and password")

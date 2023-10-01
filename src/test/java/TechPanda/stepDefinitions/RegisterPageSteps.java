@@ -14,9 +14,10 @@ import pageObjects.user.UserRegisterPageObject;
 public class RegisterPageSteps {
     WebDriver driver;
     MyDashboardPageObjects myDashboardPage;
-    UserHomePageObjects homePage;
-    public RegisterPageSteps() {
+    TestContext testContext;
+    public RegisterPageSteps(TestContext testContext) {
         driver = Hooks.openAndQuitBrowser();
+        this.testContext = testContext;
         myDashboardPage = PageGeneratorManager.getMyDashboardPage(driver);
     }
 

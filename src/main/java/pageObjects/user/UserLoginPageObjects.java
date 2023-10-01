@@ -1,5 +1,6 @@
 package pageObjects.user;
 
+import commons.GlobalConstants;
 import org.openqa.selenium.WebDriver;
 
 import pageObjects.Navigation.PageGeneratorManager;
@@ -59,5 +60,6 @@ public class UserLoginPageObjects extends CommonPageObject {
 		waitForElementVisible(driver, LoginPageUI.PASSWORD_INCORRECT_ERROR_MESSAGE);
 		return getElementText(driver, LoginPageUI.PASSWORD_INCORRECT_ERROR_MESSAGE);
 	}
+
 
 }
