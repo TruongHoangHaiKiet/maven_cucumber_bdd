@@ -22,7 +22,4 @@ public class HomePageSteps extends basePage {
         homePage.clickToMyAccountLink();
     }
 
-    public void openMyAccountPageNotLoggedd()  {
-        homePage.clickToMyAccountLink();
-    }
 }
