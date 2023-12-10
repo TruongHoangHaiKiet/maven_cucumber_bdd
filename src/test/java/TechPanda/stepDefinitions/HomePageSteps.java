@@ -21,4 +21,8 @@ public class HomePageSteps extends basePage {
     public void openMyAccountPageNotLogged()  {
         homePage.clickToMyAccountLink();
     }
+
+    public void openMyAccountPageNotLoggedd()  {
+        homePage.clickToMyAccountLink();
+    }
 }
