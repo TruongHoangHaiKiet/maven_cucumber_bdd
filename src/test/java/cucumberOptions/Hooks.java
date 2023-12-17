@@ -20,6 +20,8 @@ public class Hooks {
     // Run for many thread
     private static WebDriver driver;
     private static final Logger log = Logger.getLogger(Hooks.class.getName());
+    static String projectPath = System.getProperty("user.dir");
+    static String osName = System.getProperty("os.name");
 
     @Before // synchronized = handle đồng bộ
     public synchronized static WebDriver openAndQuitBrowser() {
